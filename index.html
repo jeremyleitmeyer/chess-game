@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Chess</title>
+	<link rel="stylesheet" href="css/chessboard-0.3.0.css">
+	<link rel="stylesheet" href="css/index.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/chessboard-0.3.0.min.js"></script>
+	<script src="node_modules/chess.js/chess.js"></script>
+</head>
+<body>
+	<div id="myModal" class="hidden">
+		<div class="modal-content">
+  		<div class="login page">
+	      <div class="form">
+	        <h3 class="title">What's your nickname?</h3>
+	        <input id="uName" class="usernameInput" type="text" maxlength="14"/>
+	        <div class="warning"></div>
+	        <br>
+	        <button id="startBtn" class="close" disabled="true"> PLAY </button>
+	      </div>
+    	</div>
+		</div>
+	</div>
+	<!-- leaderboard -->
+	<div class="leaderboards">
+		<h2 class="score-title">Leaderboard</h2>
+		<hr class="score-hr">
+		<!-- to be top user scores -->
+		<ol>
+			<li>User 6 -- 25 wins</li>
+			<li>User 8 -- 23 wins</li>
+			<li>User 3 -- 22 wins</li>
+			<li>User 9 -- 19 wins</li>
+			<li>User 5 -- 17 wins</li>
+			<li>User 1 -- 15 wins</li>
+			<li>User 7 -- 12 wins</li>
+			<li>User 10 -- 8 wins</li>
+			<li>User 2 -- 4 wins</li>
+			<li>User 4 -- 2 wins</li>
+		</ol>
+		<div class="player1">
+			<h3 id="you"></h3>
+			<h2>VS</h2>
+		<!-- to be real opponent username -->
+			<h3>t0m</h3>
+		</div>
+	</div>
+	<!-- chessboard -->
+	<div class="chess-board" id="board"></div>
+	<script src="js/chess_computer.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
