@@ -1,17 +1,20 @@
 /*chat box*/
 
 #chat {
-	width: 300px;
+	width: 25%;
 	height: 100%;
 	float: right;
-	border: 5px solid white;
+	border: 5px solid grey;
+	position: fixed; 
+	top: 0; 
+	right: 0;
 }
 
 body { 
-	font: 13px Helvetica, Arial; 
+	font: 13px Helvetica, Arial;
+	background-color: black; 
 }
 .chat-input { 
-	margin-left: 5px;
 	padding: 3px;
 	width: 100%; 
 }
@@ -22,7 +25,7 @@ body {
 	margin-right: .5%; 
 }
 .chat-input button { 
-	width: 15%;
+	width: 18%;
 	border: none; 
 	padding: 10px; 
 }
@@ -31,7 +34,7 @@ body {
 	list-style-type: none; 
 	margin: 0; 
 	padding: 0; 
-	height: 90%;
+	height: 93%;
 }
 #messages li { 
 	padding: 5px 10px; 
@@ -40,10 +43,7 @@ body {
 	background: #eee; 
 }
 
-body {
-	background-color: black;
-}
-
+/*login page*/
 .logo {
 	margin-top: 10%;
 	margin-bottom: 15px;
@@ -107,6 +107,7 @@ body {
 	position: fixed;
 	padding: 10px;
 	width: 15%;
+	font-size: 18px;
 }
 
 .leaderboards li {
@@ -116,6 +117,7 @@ body {
 .player1 {
 	color: white;
 	margin-top: 60px;
+	font-size: 18px;
 }
 
 #myModal {
