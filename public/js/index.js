@@ -4,14 +4,8 @@ var myModal = document.querySelector("#myModal")
 var btn = document.getElementById("startBtn")
 var uName = document.getElementById("uName")
 var you = document.getElementById("you")
-var c = document.querySelector("piece-417db")
-
-var rooms = []
-var users = []
-
-// c.addEventListener("onClick", function(){
-// 	console.log(game.history().slice[-1].pop())
-// });
+var c = document.querySelector("board")
+var socket = io()
 
 
 uName.addEventListener("keyup", function(){

@@ -1,12 +1,13 @@
+var update
 var board,
-  game = new Chess(),
+	game = new Chess(),
   statusEl = $('#status'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
   socket = io();
 
-
 // game logic event listeners for chat output
+
   socket.on('move', function(data){
 	  $('#messages').append('<li>' + data + '</li>');
 	});
@@ -26,7 +27,6 @@ var board,
   socket.on('check', function(data) {
 	  $('#messages').append('<li>' + data + '</li>');
 	})
-
 // do not pick up pieces if the game is over
 // only pick up pieces for the side to move
 var onDragStart = function(source, piece, position, orientation) {
@@ -44,7 +44,7 @@ var onDrop = function(source, target, piece) {
     to: target,
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
   });
-
+  
   // illegal move
   if (move === null) return 'snapback';
 
@@ -64,8 +64,9 @@ var onDrop = function(source, target, piece) {
   if (piece === 'bP'){ piece = "Player 2's Pawn" }
 
   socket.emit('move', piece + " has moved from " + source + ' to ' + target)
-
-  updateStatus();
+	console.log(game.fen())
+	socket.emit('update', update = game.fen())
+	updateStatus();
 };
 
 // update the board position after the piece snap 
@@ -73,6 +74,14 @@ var onDrop = function(source, target, piece) {
 var onSnapEnd = function() {
   board.position(game.fen());
 };
+
+var onChange = function(oldPos, newPos) {
+  console.log("Position changed:");
+  console.log("Old position: " + ChessBoard.objToFen(oldPos));
+  console.log("New position: " + ChessBoard.objToFen(newPos));
+  console.log("--------------------");
+};
+
 
 var updateStatus = function() {
   var status = '';
@@ -109,7 +118,7 @@ var updateStatus = function() {
       socket.emit('check', moveColor + ' is in check')
     }
   }
-
+  socket.emit('pturn', game)
   statusEl.html(status);
   fenEl.html(game.fen());
   pgnEl.html(game.pgn());
@@ -120,7 +129,17 @@ var cfg = {
   position: 'start',
   onDragStart: onDragStart,
   onDrop: onDrop,
-  onSnapEnd: onSnapEnd
+  onSnapEnd: onSnapEnd,
+  onChange: onChange
 };
 
-board = ChessBoard('board', cfg);
+board = ChessBoard('board', cfg)
+
+
+	socket.on('update', function(update){
+		board.position(update)
+	})
+
+socket.on('pturn', function(game){
+	game.turn()
+})

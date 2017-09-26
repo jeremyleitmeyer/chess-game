@@ -7,7 +7,7 @@ var socketUsers = require('socket.io.users');
 var uuid = require('uuid/v4');
 
 
-app.use(express.static(__dirname + '/chess.js'));
+app.use(express.static(__dirname + '/chess'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/node_modules')); 
 
@@ -15,9 +15,17 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection',function(socket){
+io.sockets.on('connection',function(socket){
     console.log('IO DEBUG: Socket '+ socket.id + ' is ready \n');
     console.log('a user connected');
+
+  socket.on('pturn', function(game){
+  	io.emit('game', game)
+  })
+
+  socket.on('update', function(update){
+  	io.emit('update', update)
+  })
 
 	socket.on('disconnect', function(){
 	  console.log('user disconnected');
