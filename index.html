@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="css/main.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/vue"></script>
-	<script src="js/chessboard-0.3.0.min.js"></script>
-	<script src="chess.js/chess.js"></script>
+	<script src="js/chessboard-0.3.0.js"></script>
+	<script src="chess/chess.js"></script>
 </head>
 <body>
 	<div id="myModal" class="hidden">
@@ -47,6 +47,7 @@
 		</div>
 	</div>
 	<div class="chess-board" id="board"></div>
+	<input type="button" id="startPositionBtn" value="Start Position" />
 	<div id="chat">
 		<ul id="messages"></ul>
     <form class="chat-input" action="">
@@ -55,7 +56,7 @@
 	</div>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="js/messaging.js"></script>
-	<script src="js/chess_computer.js"></script>
+	<script src="js/chess_start_and_play_logic.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>

@@ -10,6 +10,13 @@ $(function () {
 	});
 });
 
-$("#login-form").submit(function(e){
-    return false;
+$(function () {
+	$("#login-form").submit(function(e){
+	    return false;
+	    socket.emit('create', $('#uName').val());
+	});
+	socket.on('create', function(room){
+		room = room
+		console.log(room)
+	})
 });

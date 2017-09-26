@@ -1282,6 +1282,7 @@ function stopDraggedPiece(location) {
   }
   else if (action === 'drop') {
     dropDraggedPieceOnSquare(location);
+    console.log(location)
   }
 }
 
