@@ -54,8 +54,8 @@ io.sockets.on('connection',function(socket){
 		io.emit('check', gameOver)
 	})
 
-	socket.on('chat message', function(msg){
-	  io.emit('chat message', msg);
+	socket.on('chat message', function(name, msg){
+	  io.emit('chat message', name, msg);
 	});
 });
 

@@ -17,6 +17,27 @@ uName.addEventListener("keyup", function(){
 	}
 })
 
+$(function () {
+	var socket = io();
+	$('.chat-input').submit(function(){
+	  socket.emit('chat message', $('#uName').val(), $('#m').val());
+	  $('#m').val('');
+	  return false;
+	});
+	socket.on('chat message', function(name, msg){
+	  $('#messages').append('<li>' + name + ': ' + msg + '</li>');
+	 	var elem = document.getElementById('messages');
+   	elem.scrollTop = elem.scrollHeight;
+	});
+});
+
+$(function () {
+	$("#login-form").submit(function(e){
+	    return false;
+	});
+});
+
+
 //leaderboards
 
 Vue.component('score-item', {
