@@ -8,14 +8,14 @@ var c = document.querySelector("board")
 var socket = io()
 
 
-uName.addEventListener("keyup", function(){
-	var v = uName.value.length
+// uName.addEventListener("keyup", function(){
+// 	var v = uName.value.length
 
-	if(v != 0) {
-		btn.disabled = false;
-		you.innerHTML = uName.value
-	}
-})
+// 	if(v != 0) {
+// 		btn.disabled = false;
+// 		you.innerHTML = uName.value
+// 	}
+// })
 
 //leaderboards
 

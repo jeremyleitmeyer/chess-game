@@ -19,14 +19,10 @@ io.sockets.on('connection',function(socket){
     console.log('IO DEBUG: Socket '+ socket.id + ' is ready \n');
     console.log('a user connected');
 
-  socket.on('pturn', function(game){
-  	io.emit('game', game)
-  })
-
-  socket.on('update', function(update){
-  	io.emit('update', update)
-  })
-
+socket.on('update', function(update){
+  	io.sockets.emit('update', update = update)
+  	console.log(update)
+})
 	socket.on('disconnect', function(){
 	  console.log('user disconnected');
 	});
@@ -55,6 +51,9 @@ io.sockets.on('connection',function(socket){
 	  io.emit('chat message', msg);
 	});
 });
+
+
+
 
 server.listen(3000);
 console.log('Listening on :3000')
