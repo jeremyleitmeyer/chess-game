@@ -85,14 +85,6 @@ var onDrop = function(source, target, piece) {
 };
 
 
-var onChange = function(oldPos, newPos) {
-  console.log("Position changed:");
-  console.log("Old position: " + ChessBoard.objToFen(oldPos));
-  console.log("New position: " + ChessBoard.objToFen(newPos));
-  console.log("--------------------");
-};
-
-
 var updateStatus = function() {
   var status = '';
 
@@ -138,8 +130,7 @@ var cfg = {
   draggable: true,
   position: 'start',
   onDragStart: onDragStart,
-  onDrop: onDrop,
-  onChange: onChange
+  onDrop: onDrop
 };
 
 board = ChessBoard('board', cfg)

@@ -52,9 +52,12 @@ var leaderboard = new Vue({
   el: '#leaderboard',
   data: {
     scoreList: [
-      { id: 0, text: 'Jeremy' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Lemons' }
+      { id: 0, text: 'This' },
+      { id: 1, text: 'is' },
+      { id: 2, text: 'not' }
+      { id: 3, text: 'functional' }
+      { id: 4, text: 'quite' }
+      { id: 5, text: 'yet.' }
     ]
   }
 })
