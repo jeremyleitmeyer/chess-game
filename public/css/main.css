@@ -51,6 +51,7 @@ body {
 	width: 18.5%;
 	border: 1px solid black; 
 	padding: 10px; 
+	background-color: antiquewhite;
 }
 #messages { 
 	background-color: #f0d9b5;
