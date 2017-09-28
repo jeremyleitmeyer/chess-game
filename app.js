@@ -57,6 +57,10 @@ io.sockets.on('connection',function(socket){
 	socket.on('chat message', function(name, msg){
 	  io.emit('chat message', name, msg);
 	});
+
+	socket.on('usercon', function(name){
+	  io.emit('usercon', name);
+	});
 });
 
 
