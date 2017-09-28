@@ -5,6 +5,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var socketUsers = require('socket.io.users');
 var uuid = require('uuid/v4');
+var port = process.env.PORT || 8080;
 
 
 app.use(express.static(__dirname + '/chess'));
@@ -61,5 +62,6 @@ io.sockets.on('connection',function(socket){
 
 
 
-server.listen(3000);
-console.log('Listening on :3000')
+server.listen(port, function(){
+	console.log('Doing the thang on:' + port)
+});
