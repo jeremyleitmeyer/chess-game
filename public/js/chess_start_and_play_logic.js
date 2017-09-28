@@ -1,32 +1,47 @@
-var update
+var update, updateup
 var board,
-	game = new Chess(),
+	game = Chess(),
   statusEl = $('#status'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
   socket = io();
 
 // game logic event listeners for chat output
+var elem = document.getElementById('messages');
+
 
   socket.on('move', function(data){
 	  $('#messages').append('<li>' + data + '</li>');
+	  elem.scrollTop = elem.scrollHeight;
 	});
 
   socket.on('checkmate', function(data){
 	  $('#messages').append('<li>' + data + '</li>');
+	  elem.scrollTop = elem.scrollHeight;
 	});
 
   socket.on('draw', function(data) {
     $('#messages').append('<li>' + data + '</li>');
+    elem.scrollTop = elem.scrollHeight;
   })
 
   socket.on('turn', function(data) {
     $('#messages').append('<li>' + data + '</li>');
+    elem.scrollTop = elem.scrollHeight;
   })
 
   socket.on('check', function(data) {
 	  $('#messages').append('<li>' + data + '</li>');
+	  elem.scrollTop = elem.scrollHeight;
 	})
+
+	socket.on('updatetwo', function(update){
+	board.position(update)
+})
+
+socket.on('update', function(update){
+	board.position(update)
+})
 // do not pick up pieces if the game is over
 // only pick up pieces for the side to move
 var onDragStart = function(source, piece, position, orientation) {
@@ -35,6 +50,8 @@ var onDragStart = function(source, piece, position, orientation) {
       (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
     return false;
   }
+  updateup = game.fen()
+  socket.emit('updatetwo', game.fen(update))
 };
 
 var onDrop = function(source, target, piece) {
@@ -44,7 +61,7 @@ var onDrop = function(source, target, piece) {
     to: target,
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
   });
-  
+
   // illegal move
   if (move === null) return 'snapback';
 
@@ -65,15 +82,12 @@ var onDrop = function(source, target, piece) {
 
   socket.emit('move', piece + " has moved from " + source + ' to ' + target)
 	console.log(game.fen())
+
 	socket.emit('update', update = game.fen())
+
 	updateStatus();
 };
 
-// update the board position after the piece snap 
-// for castling, en passant, pawn promotion
-var onSnapEnd = function() {
-  board.position(game.fen());
-};
 
 var onChange = function(oldPos, newPos) {
   console.log("Position changed:");
@@ -118,7 +132,7 @@ var updateStatus = function() {
       socket.emit('check', moveColor + ' is in check')
     }
   }
-  socket.emit('pturn', game)
+
   statusEl.html(status);
   fenEl.html(game.fen());
   pgnEl.html(game.pgn());
@@ -129,17 +143,9 @@ var cfg = {
   position: 'start',
   onDragStart: onDragStart,
   onDrop: onDrop,
-  onSnapEnd: onSnapEnd,
   onChange: onChange
 };
 
 board = ChessBoard('board', cfg)
 
-
-	socket.on('update', function(update){
-		board.position(update)
-	})
-
-socket.on('pturn', function(game){
-	game.turn()
-})
+// b1 update = fen / b2 position = update /  b2 fen = position / position = fen / upda

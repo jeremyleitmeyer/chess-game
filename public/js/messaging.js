@@ -7,16 +7,13 @@ $(function () {
 	});
 	socket.on('chat message', function(msg){
 	  $('#messages').append('<li>' + msg + '</li>');
+	 	var elem = document.getElementById('messages');
+   	elem.scrollTop = elem.scrollHeight;
 	});
 });
 
 $(function () {
 	$("#login-form").submit(function(e){
 	    return false;
-	    socket.emit('create', $('#uName').val());
 	});
-	socket.on('create', function(room){
-		room = room
-		console.log(room)
-	})
 });
