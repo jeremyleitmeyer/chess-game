@@ -54,10 +54,14 @@ var leaderboard = new Vue({
     scoreList: [
       { id: 0, text: 'This' },
       { id: 1, text: 'is' },
-      { id: 2, text: 'not' }
-      { id: 3, text: 'functional' }
-      { id: 4, text: 'quite' }
-      { id: 5, text: 'yet.' }
+      { id: 2, text: 'not' },
+      { id: 3, text: 'functional' },
+      { id: 4, text: 'quite' },
+      { id: 5, text: 'yet.' },
+      { id: 6, text: 'This' },
+      { id: 7, text: 'is' },
+      { id: 8, text: 'not' },
+      { id: 9, text: 'functional' }
     ]
   }
 })

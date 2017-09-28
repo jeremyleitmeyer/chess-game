@@ -27,23 +27,24 @@
 	</div>
 	<!-- leaderboard -->
 	<div class="leaderboards">
-		<h2 class="score-title">Leaderboard</h2>
-		<hr class="score-hr">
-		<!-- to be top user scores -->
-		<div id="leaderboard">
-		  <ol>
-		    <score-item
-		      v-for="item in scoreList"
-		      v-bind:score="item"
-		      v-bind:key="item.id">
-		    </score-item>
-		  </ol>
+		<div id="leadcont">
+			<h2 class="score-title"><u>Leaderboard</u></h2>
+			<!-- to be top user scores -->
+			<div id="leaderboard">
+			  <ol>
+			    <score-item
+			      v-for="item in scoreList"
+			      v-bind:score="item"
+			      v-bind:key="item.id">
+			    </score-item>
+			  </ol>
+			</div>
 		</div>
 		<div class="player1">
 			<h3 id="you"></h3>
 			<h2>VS</h2>
 		<!-- to be real opponent username -->
-			<h3>t0m9999</h3>
+			<h3>Opponent</h3>
 		</div>
 	</div>
 	<div class="chess-board" id="board"></div>

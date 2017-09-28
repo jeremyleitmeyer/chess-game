@@ -4,8 +4,9 @@
 	width: 25%;
 	height: 99%;
 	float: right;
-	border: 5px solid grey;
+	border: 5px solid black;
 	position: fixed; 
+	margin-top: -5px;
 	top: 0; 
 	right: 0;
 }
@@ -18,32 +19,41 @@
 	color: blue;
 }
 
-.username {
-	color: green;
+#reset {
+	background-color: #f0d9b5;
+	border: 1px solid black; 
 }
 
 body { 
 	font: 13px Helvetica, Arial;
-	background-color: black; 
+	background-color: antiquewhite; 
 }
+
+.username {
+	color: green;
+	font-size: 15px;
+}
+
 .chat-input { 
 	width: 100%; 
-	background-color: grey;
+	background-color: #f0d9b5;
+	height: 100%;
 }
 .chat-input input { 
 	border: 1px solid black;
 	padding: 10px; 
 	width: 80%; 
 	margin-right: .5%; 
-	margin-top: 5.5px;
+	margin-top: 3px;
+	margin-left: .5%;
 }
 .chat-input button { 
-	width: 19.5%;
+	width: 18.5%;
 	border: 1px solid black; 
 	padding: 10px; 
 }
 #messages { 
-	background-color: white;
+	background-color: #f0d9b5;
 	list-style-type: none; 
 	margin: 0; 
 	padding: 0; 
@@ -54,7 +64,7 @@ body {
 	padding: 5px 10px; 
 }
 #messages li:nth-child(odd) { 
-	background: #eee; 
+	background: antiquewhite; 
 }
 
 /*login page*/
@@ -64,7 +74,7 @@ body {
 }
 
 .login.page {
-  background-color: #000;
+  background-color: antiquewhite;
   display: block;
 }
 
@@ -80,7 +90,7 @@ body {
 .login.page .form .usernameInput {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid black;
   outline: none;
   padding-bottom: 15px;
   text-align: center;
@@ -97,52 +107,68 @@ body {
 }
 
 .login.page .title, .login.page .usernameInput {
-  color: #fff;
+  color: black;
   font-weight: 100;
+
 }
 
 .chess-board{
 	margin: 0 auto;
-	width: 580px;
+	margin-top: 25px;
+	width: 46%;
+	box-shadow: 5px 3px 5px black;
 }
 
-.score-title {
+/*.score-title {
 	color: white;
-}
+}*/
 
 .score-hr {
 	width: 80%;
-	color: white;
+	/*color: white;*/
+}
+
+#leadcont {
+	border: 5px solid black;
+	background-color: #f0d9b5;
+	box-shadow: 5px 3px 3px black;
 }
 
 .leaderboards {
 	text-align: center;
-	color: white;
+	/*color: white;*/
 	position: fixed;
 	padding: 10px;
-	width: 15%;
+	width: 22%;
+	height: 90%;
 	font-size: 18px;
+	margin-left: 5px;
+	margin-top: 15px;
 }
 
 .leaderboards li {
 	margin-top: 3px;
+	text-align: left;
 }
 
 .player1 {
-	color: white;
-	margin-top: 60px;
+	/*color: white;*/
+	background-color: #f0d9b5;
+	margin-top: 20px;
 	font-size: 18px;
+	border: 5px solid black;
+	box-shadow: 5px 3px 3px black;
 }
 
 #myModal {
     position: fixed; /* Stay in place */
     z-index: 1;  Sit on top 
+    text-align: center;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: grey; /* Fallback color */
 }
 
 .hidden {
@@ -151,7 +177,7 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: black;
+    background-color: antiquewhite;
     text-align: center;
     margin: 0 auto;
     padding: 20px;
@@ -162,21 +188,21 @@ body {
 /* The Close Button */
 .close {
 	margin-top: 80px;
-    color: white;
+    color: black;
     font-size: 28px;
     font-weight: bold;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 5px;
     width: 200px;
     height: 50px;
-    background-color: black;
+    background-color: antiquewhite;
     transition-duration: 0.6s;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    background-color: white;
+    color: antiquewhite;
+    background-color: black;
     text-decoration: none;
     cursor: pointer;
 }
