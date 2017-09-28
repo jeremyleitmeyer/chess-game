@@ -143,4 +143,14 @@ var cfg = {
 
 board = ChessBoard('board', cfg)
 
+var reset = document.getElementById("reset")
+
+reset.addEventListener('click', function(){
+	socket.emit('reset', update = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
+})
+socket.on('reset', function(update){
+	game.load(update)
+	board.position(update)
+})
+
 // b1 update = fen / b2 position = update /  b2 fen = position / position = fen / upda
