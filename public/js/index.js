@@ -19,8 +19,6 @@ uName.addEventListener("keyup", function(){
 
 //leaderboards
 
-// vue.js
-
 Vue.component('score-item', {
   props: ['score'],
   template: '<li>{{ score.text }}</li>'
