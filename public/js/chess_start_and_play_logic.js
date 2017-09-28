@@ -1,4 +1,4 @@
-var update, updateup
+var update
 var board,
 	game = Chess(),
   statusEl = $('#status'),
@@ -35,13 +35,10 @@ var elem = document.getElementById('messages');
 	  elem.scrollTop = elem.scrollHeight;
 	})
 
-	socket.on('updatetwo', function(update){
-	board.position(update)
-})
-
-socket.on('update', function(update){
-	board.position(update)
-})
+	socket.on('update', function(update){
+		game.load(update)
+		board.position(update)
+	})
 // do not pick up pieces if the game is over
 // only pick up pieces for the side to move
 var onDragStart = function(source, piece, position, orientation) {
@@ -50,8 +47,6 @@ var onDragStart = function(source, piece, position, orientation) {
       (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
     return false;
   }
-  updateup = game.fen()
-  socket.emit('updatetwo', game.fen(update))
 };
 
 var onDrop = function(source, target, piece) {

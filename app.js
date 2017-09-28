@@ -19,11 +19,6 @@ io.sockets.on('connection',function(socket){
     console.log('IO DEBUG: Socket '+ socket.id + ' is ready \n');
     console.log('a user connected');
 
-socket.on('updatetwo', function(update){
-		io.sockets.emit('update', update)
-		console.log(update)
-})
-
 socket.on('update', function(update){
   	io.sockets.emit('update', update = update)
   	console.log(update)
