@@ -32,9 +32,13 @@ $(function () {
 });
 
 $(function () {
-	$("#login-form").submit(function(e){
+	$("#login-form").submit(function(){
+			socket.emit('usercon', $('#uName').val())
 	    return false;
 	});
+	socket.on('usercon', function(name){
+		$('#messages').append('<li class="join">' + name + ' has joined the lobby' + '</li>')
+	})	
 });
 
 

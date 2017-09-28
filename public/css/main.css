@@ -10,6 +10,14 @@
 	right: 0;
 }
 
+.info {
+	color: red;
+}
+
+.join {
+	color: blue;
+}
+
 body { 
 	font: 13px Helvetica, Arial;
 	background-color: black; 

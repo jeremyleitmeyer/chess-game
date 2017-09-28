@@ -11,27 +11,27 @@ var elem = document.getElementById('messages');
 
 
   socket.on('move', function(data){
-	  $('#messages').append('<li>' + data + '</li>');
+	  $('#messages').append('<li class="info">' + data + '</li>');
 	  elem.scrollTop = elem.scrollHeight;
 	});
 
   socket.on('checkmate', function(data){
-	  $('#messages').append('<li>' + data + '</li>');
+	  $('#messages').append('<li class="info">' + data + '</li>');
 	  elem.scrollTop = elem.scrollHeight;
 	});
 
   socket.on('draw', function(data) {
-    $('#messages').append('<li>' + data + '</li>');
+    $('#messages').append('<li class="info">' + data + '</li>');
     elem.scrollTop = elem.scrollHeight;
   })
 
   socket.on('turn', function(data) {
-    $('#messages').append('<li>' + data + '</li>');
+    $('#messages').append('<li class="info">' + data + '</li>');
     elem.scrollTop = elem.scrollHeight;
   })
 
   socket.on('check', function(data) {
-	  $('#messages').append('<li>' + data + '</li>');
+	  $('#messages').append('<li class="info">' + data + '</li>');
 	  elem.scrollTop = elem.scrollHeight;
 	})
 
