@@ -25,7 +25,7 @@ $(function () {
 	  return false;
 	});
 	socket.on('chat message', function(name, msg){
-	  $('#messages').append('<li>' + name + ': ' + msg + '</li>');
+	  $('#messages').append('<li>' + '<span class="username">' + name + '</span>' + ': ' + msg + '</li>');
 	 	var elem = document.getElementById('messages');
    	elem.scrollTop = elem.scrollHeight;
 	});

@@ -59,12 +59,13 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   position: absolute;
+  color: white;
 }
 .alpha-d2270 {
-  bottom: 1px;
+  bottom: -20px;
   right: 3px;
 }
 .numeric-fc462 {
   top: 2px;
-  left: 2px;
+  left: -17px;
 }
