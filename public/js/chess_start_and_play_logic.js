@@ -35,6 +35,7 @@ var elem = document.getElementById('messages');
 	  elem.scrollTop = elem.scrollHeight;
 	})
 
+// emit for handling of position and games data 
 	socket.on('update', function(update){
 		game.load(update)
 		board.position(update)
@@ -143,11 +144,15 @@ var cfg = {
 
 board = ChessBoard('board', cfg)
 
+
+// resets the board and update value back to default
 var reset = document.getElementById("reset")
 
 reset.addEventListener('click', function(){
+	alert("Are you sure you want to reset?")
 	socket.emit('reset', update = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
 })
+
 socket.on('reset', function(update){
 	game.load(update)
 	board.position(update)
